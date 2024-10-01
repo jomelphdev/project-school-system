@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title id="dynamicTitle">TalentSage</title>
+</head>
+
+<body style="margin: 0" onload="showFavicon()"></body>
+<noscript>
+  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+      properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+</noscript>
+<script>
+  function showFavicon() {
+    let myDomain = document.domain;
+    let link = document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+
+    switch (myDomain) {
+      case "ts.talentsage.com":
+        link.href = 'https://ts.talentsage.com/ts-favicon.png';
+        document.getElementById('dynamicTitle').innerText = 'TalentSage';
+        break;
+      case "lbs.talentsage.com":
+        link.href = 'https://lbs.talentsage.com/lbs-favicon.gif';
+        document.getElementById('dynamicTitle').innerText = 'London Business School';
+        break;
+      case "chicagobooth.talentsage.com":
+        link.href = 'https://chicagobooth.talentsage.com/chicagobooth-favicon.ico';
+        document.getElementById('dynamicTitle').innerText = 'Chicago Booth';
+        break;
+      case "alba.talentsage.com":
+        link.href = 'https://alba.talentsage.com/alba-favicon.ico';
+        document.getElementById('dynamicTitle').innerText = 'Alba';
+        break;
+      case "smartcollaboration.talentsage.com":
+        link.href = 'https://smartcollaboration.talentsage.com/smartcollab-favicon.png';
+        document.getElementById('dynamicTitle').innerText = 'Smart Collaboration';
+        break;
+      default:
+        link.href = 'https://ts.talentsage.com/ts-favicon.png';
+        document.getElementById('dynamicTitle').innerText = 'TalentSage';
+    }
+
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }
+</script>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
+
+</html>
